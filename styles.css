@@ -1,0 +1,278 @@
+/* Estilo general */
+body {
+    font-family: 'Montserrat', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #FFFFFF;
+    color: #114771;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+/* Estilo del contenedor del control de audio */
+.control-audio {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Espacio entre el icono y la barra */
+}
+
+/* Estilo del botón (Play/Pause) */
+.control-audio button {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+/* Estilo de la imagen del icono (Play/Pause) */
+.control-audio img {
+    width: 40px;
+    height: 40px;
+    transition: transform 0.3s;
+}
+
+/* Efecto al pasar el ratón sobre el icono */
+.control-audio button:hover img {
+    transform: scale(1.1);
+}
+
+/* Estilo de la barra de volumen */
+.volume-bar {
+    width: 150px;
+    height: 10px;
+    -webkit-appearance: none; /* Elimina estilo predeterminado en algunos navegadores */
+    appearance: none;
+    background: #ccc; /* Color de fondo de la barra */
+    border-radius: 5px;
+    outline: none;
+    transition: background 0.3s ease;
+}
+
+/* Estilo del indicador de la barra de volumen */
+.volume-bar::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: #5B9AC3; /* Color del círculo */
+    cursor: pointer;
+}
+
+/* Estilo del indicador en Firefox */
+.volume-bar::-moz-range-thumb {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: #5B9AC3;
+    cursor: pointer;
+}
+
+/* Efecto al mover la barra de volumen */
+.volume-bar:hover {
+    background: #aaa; /* Cambiar el color de la barra al pasar el ratón */
+}
+
+/* Cambiar el color de la barra cuando el volumen está bajo */
+.volume-bar:active {
+    background: #5B9AC3; /* Color cuando el volumen está en uso */
+}
+
+/* Estilo para la bienvenida */
+.bienvenida {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #114771;
+    color: #FFFFFF;
+    display: flex;
+    flex-direction: column; /* Alinea el contenido en columna */
+    justify-content: center; /* Centra el contenido verticalmente */
+    align-items: center; /* Centra el contenido horizontalmente */
+    animation: fadeOut 3s forwards;
+    z-index: 10;
+}
+
+/* Estilo para la imagen */
+.bienvenida-img {
+    width: 600px; /* Ajusta el tamaño de la imagen */
+    height: auto;
+    margin-bottom: 20px; /* Espacio entre el logo y el título */
+}
+
+/* Estilo para el título */
+.bienvenida h1 {
+    font-size: 2.5rem;
+    margin-top: 20px; /* Espacio entre el título y el borde inferior */
+}
+
+
+
+
+/* Input de registro */
+.input-texto {
+    padding: 10px;
+    font-size: 1rem;
+    margin-bottom: 20px;
+    border: 2px solid #114771;
+    border-radius: 5px;
+    width: 80%;
+    max-width: 300px;
+    box-sizing: border-box;
+}
+
+.input-texto:focus {
+    outline: none;
+    border-color: #114771;
+    background-color: #F7DBBC;
+}
+
+/* Animación para la bienvenida */
+@keyframes fadeOut {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+        visibility: hidden;
+    }
+}
+
+/* Sección */
+.seccion {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    animation: fadeIn 1s forwards;
+}
+
+.seccion:not(.oculto) {
+    display: flex;
+}
+
+/* Títulos y descripción */
+.titulo {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: #114771;
+}
+
+.descripcion {
+    font-size: 1.2rem;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+/* Lista de reglas */
+.lista {
+    text-align: left;
+    margin: 0 auto 30px auto;
+    padding: 0;
+    list-style-type: none;
+    max-width: 400px;
+}
+
+.lista li {
+    margin: 10px 0;
+    padding: 10px;
+    border-left: 4px solid #114771;
+    background-color: #F7DBBC;
+}
+
+/* Botones */
+.boton, .boton-respuesta {
+    padding: 15px 30px;
+    margin: 10px;
+    font-size: 1rem;
+    background-color: #114771;
+    color: #FFFFFF;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.boton:hover, .boton-respuesta:hover {
+    background-color: #FFFFFF;
+    color: #114771;
+    border: 2px solid #114771;
+}
+
+/* Temporizador centrado */
+.timer-box {
+    margin-bottom: 20px;
+    width: 100px;
+    height: 100px;
+    background-color: #F7DBBC;
+    border: 3px solid #114771;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+    color: #114771;
+}
+
+/* Animaciones */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Opciones de respuesta en formato vertical */
+#opcionesRespuesta {
+    display: flex;
+    flex-direction: column; /* Alineación vertical */
+    gap: 10px; /* Espacio entre las opciones */
+    align-items: center; /* Centrar las opciones */
+}
+
+.boton-respuesta {
+    width: 80%; /* Ancho de las respuestas */
+    text-align: center;
+    padding: 10px;
+    border: 2px solid #114771;
+    background-color: #F5F5F5;
+    color: #114771;
+    font-size: 1rem;
+    font-family: 'Poppins', sans-serif;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.boton-respuesta:hover {
+    background-color: #114771;
+    color: white;
+    transform: scale(1.05); /* Pequeño efecto al pasar el cursor */
+}
+
+/* GIF Global */
+#gifGlobal {
+    position: fixed;   /* Fijo en relación a la ventana */
+    bottom: 0;         /* Alineado completamente abajo */
+    left: 0;           /* Alineado completamente a la izquierda */
+    z-index: 1000;     /* Por encima de todo */
+    pointer-events: none; /* Evita interacción con el GIF */
+}
+
+#gifGlobal img {
+    width: 300px;       /* Ajusta el tamaño del GIF */
+    height: auto;      /* Mantiene la proporción original */
+    display: block;
+}

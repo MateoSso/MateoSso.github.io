@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DesignQuest</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- Elemento de audio -->
+    <audio id="audio" src="Recursos/audio/Main Title - Danny Elfman (youtube).mp3" preload="auto"></audio>
+
+    <div class="control-audio">
+    <!-- Icono de Play/Pause -->
+    <button id="btnAudio">
+        <img id="iconAudio" src="Recursos/icons/play.svg" alt="Control de audio" width="30" height="30">
+    </button>
+
+    <!-- Barra de volumen -->
+    <input type="range" id="volumeControl" class="volume-bar" min="0" max="1" step="0.01" value="1">
+    </div>
+
+
+    <div id="gifGlobal">
+        <img src="" alt="">
+    </div>
+
+
+    <!-- Bienvenida inicial --> 
+    <div id="bienvenida" class="bienvenida">
+        <img src="Recursos/images/logo.png" alt="Logo de DesignQuest" class="bienvenida-img">
+        <h1>¡Bienvenido a DesignQuest!</h1>
+    </div>
+
+
+    <div id="instrucciones" class="seccion oculto">
+
+        <h2>Instrucciones</h2>
+        <p>Estas son las instrucciones:</p>
+        <ul>
+          <li>Lee cada pregunta cuidadosamente.</li>
+          <li>Selecciona la respuesta correcta.</li>
+          <li>Tienes 30 segundos para responder cada pregunta.</li>
+        </ul>
+        <button class="boton" onclick="mostrarSeccion('registro')">Siguiente</button>
+
+    </div>
+
+      
+
+    <!-- Ventana para registro del nombre -->
+    <section id="registro" class="seccion oculto">
+        <h2 class="titulo">Ingresa tu nombre</h2>
+        <input type="text" id="nombreUsuario" placeholder="Tu nombre" class="input-texto">
+        <button class="boton" onclick="guardarNombre()">Comenzar</button>
+    </section>
+
+    <!-- Selección de nivel -->
+    <section id="seleccionNivel" class="seccion oculto">
+        <h2 class="titulo">Selecciona la dificultad</h2>
+        <button class="boton" onclick="seleccionarNivel('facil')">Fácil</button>
+        <button class="boton" onclick="seleccionarNivel('medio')">Intermedio</button>
+        <button class="boton" onclick="seleccionarNivel('dificil')">Difícil</button>
+    </section>
+
+    <!-- Sección de preguntas -->
+    <section id="preguntas" class="seccion oculto">
+        <div class="timer-box">
+            <p id="timer" class="timer">30</p>
+        </div>
+        <h2 class="titulo" id="tituloPregunta"></h2>
+        <p class="pregunta" id="textoPregunta"></p>
+        <div id="opcionesRespuesta"></div>
+    </section>
+
+    <!-- Sección de puntuación -->
+    <section id="resultado" class="seccion oculto">
+        <h2 class="titulo">¡Resultados!</h2>
+        <p id="puntuacion" class="descripcion">Tu puntuación: 0/10</p>
+        <div id="resumen"></div>
+        <p id="mensajeFinal" class="descripcion"></p>
+        <button class="boton" onclick="intentarDeNuevo()">Intentar de nuevo</button>
+        <button class="boton" onclick="reiniciarJuego()">Reiniciar</button>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+</html>
