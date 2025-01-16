@@ -39,34 +39,30 @@ const preguntasPorNivel = {
             pregunta: "¿Qué es el contraste en diseño gráfico?",
             opciones: ["La unión de colores similares", "La diferencia entre elementos visuales", "El uso de una sola paleta de colores", "La repetición de formas"],
             correcta: 1,
-            audio: "Recursos/audio/pregunta1.mp3" // Audio específico para esta pregunta
+            audio: "Recursos/audio/"
         },
         {
             pregunta: "¿Cuál es un ejemplo de tipografía sans-serif?",
             opciones: ["Times New Roman", "Arial", "Georgia", "Garamond"],
             correcta: 1,
-            audio: "audio1.mp3" // Audio específico para esta pregunta
         },
 
         {
             pregunta: "¿Qué herramienta se usa comúnmente para diseño vectorial?",
             opciones: ["Adobe Photoshop", "Adobe Illustrator", "Autodesk Maya", "Blender"],
             correcta: 1,
-            audio: "audio1.mp3" // Audio específico para esta pregunta
         },
 
         {
             pregunta: "¿Qué es la jerarquía visual?",
             opciones: ["La organización de elementos por tamaño y peso visual", "El uso de colores complementarios", "La alineación perfecta de textos", "La repetición de patrones"],
             correcta: 0,
-            audio: "audio1.mp3" // Audio específico para esta pregunta
         },
 
         {
             pregunta: "¿Qué principio del diseño utiliza líneas, formas o colores para dirigir la atención del espectador?",
             opciones: ["Movimiento", "Proximidad", "Equilibrio", "Contraste"],
             correcta: 0,
-            audio: "audio1.mp3" // Audio específico para esta pregunta
         },
     ],
 
