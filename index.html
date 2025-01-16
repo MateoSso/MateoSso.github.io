@@ -9,6 +9,16 @@
 </head>
 <body>
 
+    <div class="header">
+        <div class="logo-left">
+            <img src="Recursos/images/logoUniversidad.png" alt="Logo Izquierdo">
+        </div>
+        <div class="logo-right">
+            <img src="Recursos/images/diseñoMultimedia.png" alt="Logo Derecho">
+        </div>
+    </div>
+    
+
     <!-- Elemento de audio -->
     <audio id="audio" src="Recursos/audio/Main Title - Danny Elfman (youtube).mp3" preload="auto"></audio>
 
@@ -65,21 +75,27 @@
         <button class="boton" onclick="seleccionarNivel('dificil')">Difícil</button>
     </section>
 
-    <!-- Sección de preguntas -->
-    <section id="preguntas" class="seccion oculto">
-        <div class="timer-box">
-            <p id="timer" class="timer">30</p>
-        </div>
-        <h2 class="titulo" id="tituloPregunta"></h2>
-        <p class="pregunta" id="textoPregunta"></p>
-        <div id="opcionesRespuesta"></div>
-    </section>
+  <!-- Sección de preguntas -->
+  <section id="preguntas" class="seccion oculto">
+    <div class="timer-box">
+        <p id="timer" class="timer">30</p>
+    </div>
+    <h2 class="titulo" id="tituloPregunta"></h2>
+    <p class="pregunta" id="textoPregunta"></p>
+    <div id="opcionesRespuesta"></div>
+
+    <!-- Contenedor de audio y control play/pause -->
+    <div class="audio-container" id="audioContainer">
+        <!-- El audio y el botón de play/pause se agregarán aquí mediante JavaScript -->
+    </div>
+</section>
+
 
     <!-- Sección de puntuación -->
     <section id="resultado" class="seccion oculto">
         <h2 class="titulo">¡Resultados!</h2>
-        <p id="puntuacion" class="descripcion">Tu puntuación: 0/10</p>
         <div id="resumen"></div>
+        <p id="puntuacion" class="descripcion">Tu puntuación: 0/10</p>
         <p id="mensajeFinal" class="descripcion"></p>
         <button class="boton" onclick="intentarDeNuevo()">Intentar de nuevo</button>
         <button class="boton" onclick="reiniciarJuego()">Reiniciar</button>
