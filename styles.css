@@ -1,3 +1,17 @@
+.audio-container {
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.audio-container button {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+
 /* Estilo general */
 body {
     font-family: 'Montserrat', sans-serif;
@@ -11,6 +25,47 @@ body {
     min-height: 100vh;
 }
 
+.logo-left {
+    position: absolute; /* Posiciona el logo sobre la página */
+    top: 10px; /* Distancia desde la parte superior */
+    left: 10px; /* Distancia desde el lado izquierdo */
+    z-index: 100; /* Asegura que esté encima de todo */
+}
+
+.logo-right {
+    position: absolute; /* Posiciona el logo sobre la página */
+    top: 10px; /* Distancia desde la parte superior */
+    right: 10px; /* Distancia desde el lado derecho */
+    z-index: 100; /* Asegura que esté encima de todo */
+}
+
+.logo-left img, .logo-right img {
+    height: 50px; /* Tamaño base para pantallas grandes */
+    max-width: 100%; /* Evita deformaciones */
+    background: transparent; /* Fondo transparente */
+    transition: height 0.3s ease-in-out; /* Transición suave en el cambio de tamaño */
+}
+
+/* Media Queries para Responsividad */
+@media (max-width: 1200px) {
+    .logo-left img, .logo-right img {
+        height: 40px; /* Ajusta el tamaño en pantallas medianas */
+    }
+}
+
+@media (max-width: 768px) {
+    .logo-left img, .logo-right img {
+        height: 30px; /* Ajusta el tamaño en tablets */
+    }
+}
+
+@media (max-width: 480px) {
+    .logo-left img, .logo-right img {
+        height: 25px; /* Ajusta el tamaño en móviles */
+    }
+}
+
+
 /* Estilo del contenedor del control de audio */
 .control-audio {
     position: fixed;
@@ -19,6 +74,8 @@ body {
     display: flex;
     align-items: center;
     gap: 10px; /* Espacio entre el icono y la barra */
+    z-index: 100; /* Asegura que esté sobre otros elementos */
+    transition: bottom 0.3s ease, right 0.3s ease; /* Transiciones suaves */
 }
 
 /* Estilo del botón (Play/Pause) */
@@ -32,7 +89,7 @@ body {
 .control-audio img {
     width: 40px;
     height: 40px;
-    transition: transform 0.3s;
+    transition: transform 0.3s, width 0.3s, height 0.3s; /* Transición al ajustar tamaño */
 }
 
 /* Efecto al pasar el ratón sobre el icono */
@@ -42,14 +99,14 @@ body {
 
 /* Estilo de la barra de volumen */
 .volume-bar {
-    width: 150px;
+    width: 150px; /* Tamaño base de la barra */
     height: 10px;
     -webkit-appearance: none; /* Elimina estilo predeterminado en algunos navegadores */
     appearance: none;
     background: #ccc; /* Color de fondo de la barra */
     border-radius: 5px;
     outline: none;
-    transition: background 0.3s ease;
+    transition: background 0.3s ease, width 0.3s ease; /* Transiciones suaves */
 }
 
 /* Estilo del indicador de la barra de volumen */
@@ -82,6 +139,58 @@ body {
     background: #5B9AC3; /* Color cuando el volumen está en uso */
 }
 
+/* Media Queries para Responsividad */
+@media (max-width: 1200px) {
+    .control-audio {
+        bottom: 15px;
+        right: 15px;
+    }
+
+    .control-audio img {
+        width: 35px;
+        height: 35px; /* Ajusta el tamaño del icono */
+    }
+
+    .volume-bar {
+        width: 120px; /* Reduce el ancho de la barra */
+    }
+}
+
+@media (max-width: 768px) {
+    .control-audio {
+        bottom: 10px;
+        right: 10px;
+    }
+
+    .control-audio img {
+        width: 30px;
+        height: 30px; /* Reduce aún más el tamaño del icono */
+    }
+
+    .volume-bar {
+        width: 100px; /* Reduce aún más el ancho de la barra */
+    }
+}
+
+@media (max-width: 480px) {
+    .control-audio {
+        bottom: 10px;
+        right: 10px;
+        gap: 5px; /* Menor espacio entre elementos */
+    }
+
+    .control-audio img {
+        width: 25px;
+        height: 25px; /* Tamaño mínimo del icono */
+    }
+
+    .volume-bar {
+        width: 80px; /* Tamaño mínimo de la barra */
+    }
+}
+
+
+
 /* Estilo para la bienvenida */
 .bienvenida {
     position: fixed;
@@ -101,19 +210,18 @@ body {
 
 /* Estilo para la imagen */
 .bienvenida-img {
-    width: 600px; /* Ajusta el tamaño de la imagen */
+    width: 60%; /* Ajusta el tamaño de la imagen para ser responsive */
+    max-width: 600px; /* Limita el tamaño máximo */
     height: auto;
-    margin-bottom: 20px; /* Espacio entre el logo y el título */
+    margin-bottom: 20px; /* Espacio entre la imagen y el título */
 }
 
 /* Estilo para el título */
 .bienvenida h1 {
     font-size: 2.5rem;
-    margin-top: 20px; /* Espacio entre el título y el borde inferior */
+    margin-top: 20px; /* Espacio entre el título y la imagen */
+    text-align: center; /* Centra el texto */
 }
-
-
-
 
 /* Input de registro */
 .input-texto {
@@ -130,8 +238,52 @@ body {
 .input-texto:focus {
     outline: none;
     border-color: #114771;
-    background-color: #F7DBBC;
+    background-color: #eeeeee;
 }
+
+/* Media Queries para Responsividad */
+@media (max-width: 1200px) {
+    .bienvenida-img {
+        width: 80%; /* Imagen más pequeña en pantallas medianas */
+    }
+
+    .bienvenida h1 {
+        font-size: 2rem; /* Ajusta el tamaño del título */
+    }
+
+    .input-texto {
+        width: 90%; /* Ajusta el ancho del campo de texto */
+    }
+}
+
+@media (max-width: 768px) {
+    .bienvenida-img {
+        width: 90%; /* Imagen más pequeña en tablets */
+    }
+
+    .bienvenida h1 {
+        font-size: 1.8rem; /* Ajusta el tamaño del título */
+    }
+
+    .input-texto {
+        width: 90%; /* Amplía el campo de texto en dispositivos más pequeños */
+    }
+}
+
+@media (max-width: 480px) {
+    .bienvenida-img {
+        width: 100%; /* Imagen ocupa todo el ancho en móviles */
+    }
+
+    .bienvenida h1 {
+        font-size: 1.5rem; /* Ajusta aún más el tamaño del título */
+    }
+
+    .input-texto {
+        width: 95%; /* Reduce aún más el ancho del campo de texto */
+    }
+}
+
 
 /* Animación para la bienvenida */
 @keyframes fadeOut {
@@ -164,12 +316,14 @@ body {
     font-weight: bold;
     margin-bottom: 20px;
     color: #114771;
+    text-align: center; /* Asegura que el título se vea bien en dispositivos pequeños */
 }
 
 .descripcion {
     font-size: 1.2rem;
     text-align: center;
     margin-bottom: 30px;
+    padding: 0 15px; /* Añadido para evitar que el texto se sobrepase en pantallas pequeñas */
 }
 
 /* Lista de reglas */
@@ -179,13 +333,14 @@ body {
     padding: 0;
     list-style-type: none;
     max-width: 400px;
+    width: 90%; /* Asegura que la lista se ajuste en pantallas pequeñas */
 }
 
 .lista li {
     margin: 10px 0;
     padding: 10px;
     border-left: 4px solid #114771;
-    background-color: #F7DBBC;
+    background-color: #f7bcbc;
 }
 
 /* Botones */
@@ -212,7 +367,7 @@ body {
     margin-bottom: 20px;
     width: 100px;
     height: 100px;
-    background-color: #F7DBBC;
+    background-color: #eeeeee;
     border: 3px solid #114771;
     border-radius: 50%;
     display: flex;
@@ -221,6 +376,89 @@ body {
     font-size: 1.5rem;
     color: #114771;
 }
+
+/* Media Queries para Responsividad */
+
+/* En pantallas medianas (por ejemplo, tablets) */
+@media (max-width: 1024px) {
+    .titulo {
+        font-size: 2rem; /* Reduce el tamaño del título */
+    }
+
+    .descripcion {
+        font-size: 1.1rem; /* Reduce el tamaño de la descripción */
+    }
+
+    .lista {
+        max-width: 90%; /* Aumenta el tamaño de la lista */
+    }
+
+    .boton, .boton-respuesta {
+        font-size: 0.9rem; /* Ajusta el tamaño de los botones */
+        padding: 12px 24px;
+    }
+
+    .timer-box {
+        width: 80px; /* Ajusta el tamaño del temporizador */
+        height: 80px;
+        font-size: 1.2rem;
+    }
+}
+
+/* En pantallas pequeñas (móviles) */
+@media (max-width: 768px) {
+    .titulo {
+        font-size: 1.8rem; /* Ajusta el tamaño del título */
+    }
+
+    .descripcion {
+        font-size: 1rem; /* Ajusta el tamaño de la descripción */
+    }
+
+    .lista {
+        max-width: 90%; /* Aumenta el tamaño de la lista */
+        width: 95%; /* Asegura que la lista se ajuste bien en móviles */
+    }
+
+    .boton, .boton-respuesta {
+        font-size: 0.9rem; /* Ajusta el tamaño de los botones */
+        padding: 10px 20px;
+    }
+
+    .timer-box {
+        width: 70px; /* Ajusta el tamaño del temporizador */
+        height: 70px;
+        font-size: 1.2rem;
+    }
+}
+
+/* En pantallas muy pequeñas (móviles pequeños) */
+@media (max-width: 480px) {
+    .titulo {
+        font-size: 1.6rem; /* Ajusta aún más el tamaño del título */
+    }
+
+    .descripcion {
+        font-size: 0.9rem; /* Ajusta el tamaño de la descripción */
+    }
+
+    .lista {
+        max-width: 95%; /* Aumenta el tamaño de la lista */
+        width: 100%; /* Asegura que la lista se ajuste bien */
+    }
+
+    .boton, .boton-respuesta {
+        font-size: 0.8rem; /* Ajusta el tamaño de los botones */
+        padding: 8px 18px;
+    }
+
+    .timer-box {
+        width: 60px; /* Ajusta el tamaño del temporizador */
+        height: 60px;
+        font-size: 1rem;
+    }
+}
+
 
 /* Animaciones */
 @keyframes fadeIn {
@@ -242,6 +480,7 @@ body {
     align-items: center; /* Centrar las opciones */
 }
 
+/* Estilo de los botones de respuesta */
 .boton-respuesta {
     width: 80%; /* Ancho de las respuestas */
     text-align: center;
@@ -256,23 +495,92 @@ body {
     transition: transform 0.3s ease, background-color 0.3s ease;
 }
 
+/* Efecto hover de los botones de respuesta */
 .boton-respuesta:hover {
     background-color: #114771;
     color: white;
     transform: scale(1.05); /* Pequeño efecto al pasar el cursor */
 }
 
+/* Media Queries para Responsividad */
+
+/* En pantallas medianas (por ejemplo, tablets) */
+@media (max-width: 1024px) {
+    #opcionesRespuesta {
+        width: 90%; /* Hace que las opciones ocupen más espacio */
+    }
+
+    .boton-respuesta {
+        width: 90%; /* Ajusta el ancho de los botones */
+        font-size: 0.9rem; /* Reduce el tamaño del texto */
+        padding: 12px; /* Ajusta el padding para mantener la estética */
+    }
+}
+
+/* En pantallas pequeñas (móviles) */
+@media (max-width: 768px) {
+    #opcionesRespuesta {
+        width: 100%; /* Hace que las opciones de respuesta se adapten al tamaño de la pantalla */
+    }
+
+    .boton-respuesta {
+        width: 95%; /* Asegura que los botones se adapten a pantallas móviles */
+        font-size: 0.9rem; /* Reduce aún más el tamaño del texto */
+        padding: 8px; /* Ajusta el padding para evitar que los botones sean demasiado grandes */
+    }
+}
+
+/* En pantallas muy pequeñas (móviles pequeños) */
+@media (max-width: 480px) {
+    #opcionesRespuesta {
+        width: 100%; /* Se asegura que ocupe todo el ancho disponible */
+        padding: 0 10px; /* Añade padding para evitar que las opciones se peguen a los bordes */
+    }
+
+    .boton-respuesta {
+        width: 100%; /* Los botones ocuparán todo el ancho */
+        font-size: 0.8rem; /* Reduce aún más el tamaño del texto */
+        padding: 10px; /* Ajuste del padding para mantener el botón accesible */
+    }
+}
+
+
 /* GIF Global */
 #gifGlobal {
-    position: fixed;   /* Fijo en relación a la ventana */
-    bottom: 0;         /* Alineado completamente abajo */
-    left: 0;           /* Alineado completamente a la izquierda */
-    z-index: 1000;     /* Por encima de todo */
+    position: fixed;      /* Fijo en relación a la ventana */
+    bottom: 0;            /* Alineado completamente abajo */
+    left: 0;              /* Alineado completamente a la izquierda */
+    z-index: 1000;        /* Por encima de todo */
     pointer-events: none; /* Evita interacción con el GIF */
 }
 
 #gifGlobal img {
-    width: 300px;       /* Ajusta el tamaño del GIF */
-    height: auto;      /* Mantiene la proporción original */
+    width: 300px;        /* Tamaño predeterminado */
+    height: auto;        /* Mantiene la proporción original */
     display: block;
+    transition: width 0.3s ease-in-out; /* Transición suave en el cambio de tamaño */
 }
+
+/* Media Queries para hacerlo responsive */
+@media (max-width: 1200px) {
+    #gifGlobal img {
+        width: 250px;    /* Ajusta el tamaño para pantallas medianas */
+    }
+}
+
+@media (max-width: 768px) {
+    #gifGlobal img {
+        width: 200px;    /* Ajusta el tamaño para tablets */
+    }
+}
+
+@media (max-width: 480px) {
+    #gifGlobal img {
+        width: 150px;    /* Ajusta el tamaño para móviles */
+    }
+}
+
+
+
+
+
